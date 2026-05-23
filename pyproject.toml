@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "payroll-tool"
+version = "0.1.0"
+description = "Generate payroll receipts from an Excel data table and an openpyxl template"
+requires-python = ">=3.10"
+dependencies = ["openpyxl>=3.1", "pillow>=11.0.0", "customtkinter", "PyYAML", "radon"]
+
+[project.scripts]
+payroll = "payroll.cli:main"
