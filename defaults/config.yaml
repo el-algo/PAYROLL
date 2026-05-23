@@ -1,0 +1,42 @@
+smtp:
+  host: smtp.gmail.com
+  port: 587
+  user: "nominas.sci26@gmail.com"
+  password: "zhdb wxsq uzjp xczc"
+  from_name: "PAYROLL"
+
+sucursales:
+  - Central turno 1 
+  - Central turno 2
+  - Central turno 3
+  - Fanosa
+  - Black & Decker 
+  - Forvia  turno 1
+  - Forvia turno 3
+  - Administrativo 
+  - Transporte
+  - LATECOERE turno 1
+  - LATECOERE turno 2
+  - LATECOERE turno 3
+  - MARTIN REA T1
+  - MARTIN REA T2
+  - MARTIN REA T3
+
+datos:
+  - nombre_colaborador: A
+  - sueldo_base: D
+  - sueldo_por_hora: E
+  - horas_laboradas: F
+  - septimo_dia: G
+  - horas: F
+  - dias_vacaciones: J
+  - bonos_fijos: K
+  - prestamo: L
+  - infonavit: M
+  - fonacot: N
+  - descuento_prestamo: P
+  - total_semana: Q
+  - tiempo_extra: R
+  - vacaciones: S
+  - prima_vacacional: T
+  - correo_electronico: W

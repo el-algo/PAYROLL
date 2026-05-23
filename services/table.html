@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recibo de Pago</title>
+    <style>
+      /* ─── Design Tokens ──────────────────────────────────────── */
+      :root {
+        --gold:           #B8892A;
+        --gold-faint:     #E8D5A8;
+        --color-ink:      #111111;
+        --color-muted:    #666666;
+        --color-bg:       #ffffff;
+        --color-surface:  #f7f5f2;
+        --color-border:   #e0ddd8;
+
+        --font-main:      Arial;
+
+        --card-max-width: 480px;
+
+        --space-sm:       10px;
+        --space-md:       16px;
+        --space-lg:       24px;
+      }
+
+      /* ─── Reset ──────────────────────────────────────────────── */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-main);
+        background: #ede9e3;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 48px 16px;
+      }
+
+      /* ─── Card ───────────────────────────────────────────────── */
+      .card {
+        width: 100%;
+        max-width: var(--card-max-width);
+        background: var(--color-bg);
+        border: 0.5px solid var(--color-border);
+      }
+
+      /* ─── Header ─────────────────────────────────────────────── */
+      .card__header {
+        border-left: 3px solid var(--gold);
+        padding: 20px var(--space-lg);
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .card__logo {
+        height: 100px;
+        flex-shrink: 0;
+        object-fit: contain;
+        display: block;
+      }
+
+      .card__employee-name {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--color-ink);
+        margin-bottom: 2px;
+      }
+
+      .card__employee-meta {
+        font-size: 14px;
+        color: var(--color-muted);
+        font-style: italic;
+        line-height: 1.6;
+      }
+
+      /* ─── Divider ─────────────────────────────────────────────── */
+      .card__rule {
+        border: none;
+        border-top: 0.5px solid var(--gold-faint);
+      }
+
+      /* ─── Two-column body ─────────────────────────────────────── */
+      .card__body {
+        display: grid;
+        grid-template-columns: 1fr 0.5px 1fr;
+      }
+
+      .card__col {
+        padding: var(--space-md) var(--space-lg);
+      }
+
+      .card__col-divider {
+        background: var(--gold-faint);
+      }
+
+      .card__col-label {
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: var(--space-sm);
+      }
+
+      .card__row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: var(--color-muted);
+        margin-bottom: 4px;
+      }
+
+      .card__subtotal {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--color-ink);
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 0.5px solid var(--color-border);
+      }
+
+      /* ─── Total ──────────────────────────────────────────────── */
+      .card__total {
+        padding: 14px var(--space-lg);
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        border-top: 0.5px solid var(--gold-faint);
+      }
+
+      .card__total-label {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+      }
+
+      .card__total-amount {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--gold);
+      }
+
+      /* ─── Footer ─────────────────────────────────────────────── */
+      .card__footer {
+        padding: var(--space-sm) var(--space-lg);
+        background: var(--color-surface);
+        border-top: 0.5px solid var(--color-border);
+        text-align: center;
+        font-size: 11px;
+        font-style: italic;
+        color: var(--color-muted);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="card">
+
+      <!-- Header: logo + employee info -->
+      <div class="card__header">
+        <img class="card__logo" src="Logo.png" alt="SCI Logo" />
+        <div>
+          <p class="card__employee-name">Juan Apellido</p>
+          <p class="card__employee-meta">
+            Administrativo &middot; Turno 1<br />
+            Semana: 20-04-26 &ndash; 26-04-26<br />
+            Fecha de pago: 24-04-26
+          </p>
+        </div>
+      </div>
+
+      <hr class="card__rule" />
+
+      <!-- Percepciones / Deducciones -->
+      <div class="card__body">
+
+        <div class="card__col">
+          <p class="card__col-label">Percepciones</p>
+          <div class="card__row"><span>Sueldo Base</span><span>$8,888.00</span></div>
+          <div class="card__subtotal"><span>Subtotal</span><span>$9,999.00</span></div>
+        </div>
+
+        <div class="card__col-divider"></div>
+
+        <div class="card__col">
+          <p class="card__col-label">Deducciones</p>
+          <div class="card__row"><span>Sueldo Base</span><span>$8,888.00</span></div>
+          <div class="card__subtotal"><span>Subtotal</span><span>$9,999.00</span></div>
+        </div>
+
+      </div>
+
+      <!-- Total -->
+      <div class="card__total">
+        <span class="card__total-label">Total neto</span>
+        <span class="card__total-amount">$50,000.00</span>
+      </div>
+
+      <!-- Footer note -->
+      <div class="card__footer">
+        Este recibo fue generado automáticamente.
+      </div>
+
+    </div>
+
+  </body>
+</html>
